@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CRUD_Project.Models.Crud>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Display Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            font-weight:bolder;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="mt-2" style="width:50%">
+    <div class="row">
+     
+        <table class="table table-striped" style="margin-left:250px;border:solid;color:black">
+            <thead>
+                <tr>
+                    <th>ProductName</th>
+                    <th>ProductQty</th>
+                    <th>Price</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+
+                @foreach (var MModels in Model)
+                {
+                    <tr>
+                        <td>@MModels.ProductName</td>
+                        <td>@MModels.ProductQty</td>
+                        <td>@MModels.Price</td>
+                        <td>@MModels.State</td>
+                        <td>@MModels.City</td>
+
+                            <td>
+                                <a href="/Crud/Update?Id=@MModels.ProductId" class="btn btn-primary" style="background-color:green ">Edit</a>
+                                <a href="/Crud/Delete?Id=@MModels.ProductId" class="btn btn-primary" style="background-color:red">Delete</a>
+                            </td>
+                    </tr>
+
+                }
+
+
+            </thead>
+        </table>
+            <div class="col-md-">
+                <a href="/Crud/Index" class="btn btn-primary" style="background-color:green">Back To Home Page</a>
+            </div>
+    </div>
+</div> 
+</body>
+</html>
